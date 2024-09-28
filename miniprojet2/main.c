@@ -13,6 +13,8 @@ int compteur = 5;
 char find_the_title[100];
 int trouvee = 0; //if trouvee = 0 na trouvee rien trouvee = 1 a trouvee
 int total_de_livre;
+int i;
+int j;
 do
 {
     printf("~~~~~~~~~~~~~~~~~~ librairie Youcode ~~~~~~~~~~~~~~~~~~\n");
@@ -32,6 +34,8 @@ do
         switch (choix)
         {
 case 1:
+
+
     printf("titre de livre : ");
     scanf("%s",titre[compteur]);
 
@@ -47,7 +51,7 @@ case 1:
     printf("le livre est ajoutee avec succes\n");
     break;
 case 2:
-    for(int i = 0; i < compteur;i++){
+    for(i = 0; i < compteur;i++){
          printf("titre de livre : %s\n",titre[i]);
          printf("auteur de livre : %s\n",auteur[i]);
          printf("prix de livre : %.2f\n",prix[i]);
@@ -56,24 +60,22 @@ case 2:
     }
     break;
 case 3:
-        
+
                 trouvee = 0;
          printf("titre de livre : ");
          scanf("%s",find_the_title);
-         for(int i = 0; i < compteur;i++){
+         for( i = 0; i < compteur;i++){
             if (strcmp(find_the_title,titre[i])==0)// 1 droit < gauche et -1 droit > gauche et 0 il sont egaux
             {
         printf("titre de livre : %s\n",titre[i]);
-         printf("auteur de livre : %s\n",auteur[i]);
-         printf("prix de livre : %.2f\n",prix[i]);
-         printf("quantite de livre : %d\n",quantite[i]);
+
                 trouvee = 1;
                 break;
             }
          }
          if(trouvee == 0){
             printf("livre indisponible \n");
-         }         
+         }
 
 
     break;
@@ -81,7 +83,7 @@ case 4:
         trouvee = 0;
          printf("titre de livre : ");
          scanf("%s",find_the_title);
-         for(int i = 0; i < compteur;i++){
+         for( i = 0; i < compteur;i++){
             if (strcmp(find_the_title,titre[i])==0)// 1 droit < gauche et -1 droit > gauche et 0 il sont egaux
             {
                 int quantite2;
@@ -96,25 +98,25 @@ case 4:
             printf("livre indisponible \n");
          }
          else printf("le livre est trouvee et la modification passera avec succes\n");
-         
+
 
     break;
 case 5:
       trouvee = 0;
          printf("titre de livre : ");
          scanf("%s",find_the_title);
-         for(int i = 0; i < compteur;i++){
+         for( i = 0; i < compteur;i++){
             if (strcmp(find_the_title,titre[i])==0)// 1 droit < gauche et -1 droit > gauche et 0 il sont egaux
             {
-                for (int j = i; j < compteur-1; j++)
+                for ( j = i; j < compteur-1; j++)
                 {
                    strcpy(titre[j],titre[j+1]);
                    strcpy(auteur[j],auteur[j+1]);
                             prix[j] = prix[j+1];
                             quantite[j] = quantite[j+1];
                 }
-                
-        
+
+
                 trouvee = 1;
                 compteur--;
                 break;
@@ -122,18 +124,18 @@ case 5:
          }
          if(trouvee == 0){
             printf("livre indisponible \n");
-         }  
-         else printf("supprime avec succes\n");       
+         }
+         else printf("supprime avec succes\n");
 
 
     break;
 case 6:
-    for (int i = 0; i < compteur; i++)
+    for ( i = 0; i < compteur; i++)
     {
         total_de_livre += quantite[i];
     }
     printf("la librairie Youcode contient %d\n",total_de_livre);
-    
+
     break;
 
 default:
@@ -144,6 +146,8 @@ default:
         }
         system("pause");
         system("cls");
+
+
 } while (choix != 0);
 
     return 0;

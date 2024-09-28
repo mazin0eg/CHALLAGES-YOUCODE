@@ -34,6 +34,9 @@ do
         switch (choix)
         {
 case 1:
+    if(strcmp(find_the_title,titre[compteur]) == 0){
+    printf("ce livre est deja disponible");
+    }
     printf("titre de livre : ");
     scanf("%s",titre[compteur]);
 
@@ -65,7 +68,7 @@ case 3:
          for( i = 0; i < compteur;i++){
             if (strcmp(find_the_title,titre[i])==0)// 1 droit < gauche et -1 droit > gauche et 0 il sont egaux
             {
-        printf("titre de livre : %s\n",titre[i]);
+         printf("titre de livre : %s\n",titre[i]);
          printf("auteur de livre : %s\n",auteur[i]);
          printf("prix de livre : %.2f\n",prix[i]);
          printf("quantite de livre : %d\n",quantite[i]);
